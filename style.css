@@ -49,9 +49,26 @@ body{
 
 }
 
-#btns i{
-    font-size:2em;
-    margin : 0px 20px;
+.btn i {
+    font-size: 2em;
+    margin: 0 20px;
     color: white;
     cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
 }
+
+.btn i:hover {
+    transform: scale(1.2);
+    color: #f1c40f; 
+}
+
+.btn {
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    margin-top: 20px;        
+    gap: 20px;               
+}
+
+
+
