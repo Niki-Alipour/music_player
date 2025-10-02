@@ -14,7 +14,9 @@ body{
 
 #music-cover{
     display: block;
-    width: 100%;
+    width: 300px;
+    height: 300px;
+    margin: auto;
     border-radius: 50%;
     box-shadow: 0px 0px 38px -10px #2980b9;
     animation: glow .5s ease-in-out infinite alternate;
@@ -30,7 +32,7 @@ body{
 }
 
 #music-time{
-    width: 50%;  
+    width: 30%;  
     height: 2px;
     display: block;
     margin: 60px auto;  
