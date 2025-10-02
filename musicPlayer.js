@@ -3,6 +3,11 @@ musics = [ // your music itemes
       cover : "cover/skyfall.jpg",
       audio : new Audio ("./audio/skyfall.mp3")
 
+    },
+    { name  : "Him&I" ,
+      cover : "cover/him&i.jpg",
+      audio : new Audio ("./audio/him&I.mp3")
+
     }
 ]
 // Accesses
@@ -49,5 +54,51 @@ playBtn.addEventListener("click",()=>{
     playBtn.classList.replace("fa-pause","fa-play")
   }
 })
+
+nextBtn.addEventListener("click", ()=>{
+  changeMusic("next")
+
+})
+
+preBtn.addEventListener("click", ()=>{
+  changeMusic("pre")
+
+})
+
+function changeMusic(state){
+
+  audio.pause()
+  audio.range = 0
+  musicCover.style.animationPlayState = "paused"
+  playBtn.classList.replace("fa-pause","fa-play")
+  if(state=="next"){
+    if (currentMusic == musics.length-1)
+        currentMusic  = 0
+    else currentMusic+=1
+
+
+  }else{
+    if(currentMusic == 0) 
+        currentMusic  = musics.length-1
+    else currentMusic -=1
+    
+
+  }
+  
+  audio = musics[currentMusic].audio
+  musicCover.src = musics[currentMusic].cover
+  musicName.innerText = musics[currentMusic].name
+
+  audio.addEventListener("canplay",()=>{
+  range.max = audio.duration
+
+})
+
+  audio.addEventListener("timeupdate",()=>{
+  range.value = audio.currentTime
+
+} )
+
+}
 
 
