@@ -8,7 +8,18 @@ musics = [ // your music itemes
       cover : "cover/him&i.jpg",
       audio : new Audio ("./audio/him&I.mp3")
 
+    },
+    { name  : "Broken Angel" ,
+      cover : "cover/brokenAngel.webp",
+      audio : new Audio ("./audio/broken_angel.mp3")
+
+    },
+    { name  : "Set Fire To The Rain " ,
+      cover : "cover/setfire.jpg",
+      audio : new Audio ("./audio/setfire.mp3")
+
     }
+
 ]
 // Accesses
 musicName = document.querySelector("#music-name");
@@ -68,7 +79,7 @@ preBtn.addEventListener("click", ()=>{
 function changeMusic(state){
 
   audio.pause()
-  audio.range = 0
+  audio.currentTime = 0
   musicCover.style.animationPlayState = "paused"
   playBtn.classList.replace("fa-pause","fa-play")
   if(state=="next"){
@@ -83,7 +94,10 @@ function changeMusic(state){
     else currentMusic -=1
     
 
+  
+
   }
+  
   
   audio = musics[currentMusic].audio
   musicCover.src = musics[currentMusic].cover
@@ -98,6 +112,10 @@ function changeMusic(state){
   range.value = audio.currentTime
 
 } )
+
+  audio.play()
+  musicCover.style.animationPlayState = "running"
+  playBtn.classList.replace("fa-play", "fa-pause")
 
 }
 
