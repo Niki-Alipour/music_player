@@ -30,11 +30,16 @@ nextBtn = document.querySelector("#next-btn");
 playBtn = document.querySelector("#play-btn");
 
 currentMusic = 0;
-let audio = musics[currentMusic].audio
 
-musicCover.src = musics[currentMusic].cover
 
-musicName.innerText = musics[currentMusic].name
+  let audio = musics[currentMusic].audio
+
+  musicCover.src = musics[currentMusic].cover
+
+  musicName.innerText = musics[currentMusic].name
+
+
+
 
 audio.addEventListener("canplay",()=>{
   range.max = audio.duration
@@ -100,6 +105,9 @@ function changeMusic(state){
   
   
   audio = musics[currentMusic].audio
+  audio.addEventListener("ended",()=>{
+  changeMusic("next")
+})
   musicCover.src = musics[currentMusic].cover
   musicName.innerText = musics[currentMusic].name
 
@@ -117,6 +125,10 @@ function changeMusic(state){
   musicCover.style.animationPlayState = "running"
   playBtn.classList.replace("fa-play", "fa-pause")
 
+  
+
 }
+
+
 
 
